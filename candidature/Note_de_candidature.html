@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Note de candidature — Challenge Mobitag 2026</title>
+<style>
+  @page { size: A4; margin: 10mm 12mm 9mm 12mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Calibri", "Segoe UI", system-ui, sans-serif;
+    font-size: 9.3pt; line-height: 1.33; color: #14202b; margin: 0;
+  }
+  .page { page-break-after: always; position: relative; min-height: 272mm; padding-bottom: 6mm; }
+  .page:last-child { page-break-after: auto; }
+
+  h1 { font-size: 18pt; line-height: 1.1; margin: 0 0 1.5mm; color: #0B2B46; letter-spacing: -0.2px; }
+  h2 { font-size: 11.8pt; margin: 0 0 2mm; color: #0B2B46;
+       border-bottom: 2px solid #1F6FB2; padding-bottom: 1mm; }
+  h3 { font-size: 10pt; margin: 2.6mm 0 1mm; color: #1F6FB2; }
+  p { margin: 0 0 1.9mm; text-align: justify; }
+  ul { margin: 0 0 1.8mm; padding-left: 4.2mm; }
+  li { margin-bottom: 0.85mm; }
+  strong { color: #0B2B46; }
+  em { color: #33475b; }
+
+  .masthead { border-bottom: 3px solid #0B2B46; padding-bottom: 2.2mm; margin-bottom: 3mm; }
+  .kicker { font-size: 8.4pt; letter-spacing: 1.6px; text-transform: uppercase;
+            color: #1F6FB2; font-weight: 700; margin-bottom: 1.5mm; }
+  .tagline { font-size: 11.6pt; color: #1F6FB2; font-weight: 600; margin: 1mm 0 0; }
+  .meta { font-size: 8.4pt; color: #5a6b7c; margin-top: 2.5mm; }
+
+  .runhead { font-size: 7.4pt; color: #8a97a4; text-transform: uppercase;
+             letter-spacing: 1.1px; border-bottom: 1px solid #dde3e9;
+             padding-bottom: 1mm; margin-bottom: 2.6mm; display: flex;
+             justify-content: space-between; }
+
+  table { width: 100%; border-collapse: collapse; margin: 1.8mm 0 2.5mm; font-size: 8.2pt; }
+  th { background: #0B2B46; color: #fff; text-align: left; padding: 1.1mm 1.5mm;
+       font-weight: 600; font-size: 8pt; }
+  td { padding: 1.15mm 1.6mm; border-bottom: 1px solid #dde3e9; vertical-align: top; }
+  tr:nth-child(even) td { background: #f6f8fa; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tot td { font-weight: 700; background: #e8eef4 !important; border-top: 1.5px solid #0B2B46; }
+
+  .callout { background: #f2f7fb; border-left: 3.5px solid #1F6FB2;
+             padding: 1.8mm 2.4mm; margin: 1.8mm 0 2.2mm; }
+  .callout.green { background: #eef7f1; border-left-color: #1E7A4B; }
+  .callout.amber { background: #fdf5e8; border-left-color: #B06A00; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .kpis { display: flex; gap: 2mm; margin: 2.2mm 0; }
+  .kpi { flex: 1; border: 1px solid #cfd8e1; border-top: 3px solid #1F6FB2;
+         padding: 2.2mm 2.4mm; background: #fbfcfd; }
+  .kpi .v { font-size: 13pt; font-weight: 700; color: #0B2B46; line-height: 1.1;
+            font-variant-numeric: tabular-nums; }
+  .kpi .l { font-size: 7.4pt; color: #5a6b7c; margin-top: 0.8mm; line-height: 1.25; }
+
+  .two { display: flex; gap: 5mm; }
+  .two > div { flex: 1; }
+
+  .tag { display: inline-block; font-size: 7.2pt; font-weight: 700; padding: 0.5mm 1.6mm;
+         border-radius: 2px; letter-spacing: 0.3px; }
+  .tag.ok { background: #dff0e6; color: #14603a; }
+  .tag.no { background: #fae3e3; color: #8c2020; }
+  .tag.id { background: #e2ecf6; color: #14456e; }
+
+  .fill { background: #fff6d6; padding: 0 1mm; border-bottom: 1px dotted #b08900;
+          color: #6b5200; font-style: italic; }
+
+  .foot { position: absolute; bottom: 0; left: 0; right: 0; font-size: 7.4pt;
+          color: #8a97a4; border-top: 1px solid #dde3e9; padding-top: 1.2mm;
+          display: flex; justify-content: space-between; }
+  .small { font-size: 7.8pt; color: #5a6b7c; }
+  .nb { font-size: 7.6pt; color: #5a6b7c; font-style: italic; margin-top: 1.5mm; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════ PAGE 1 ══════════════════════════════ -->
+<div class="page">
+  <div class="masthead">
+    <div class="kicker">Challenge Mobitag 2026 · French Tech Nouvelle-Calédonie × OPT-NC</div>
+    <h1>Mobitag Nouvelle Génération</h1>
+    <p class="tagline">Le canal qui reste.</p>
+    <p class="meta">
+      Note de candidature — Phase 1 &nbsp;·&nbsp;
+      <span class="fill">[RAISON SOCIALE]</span> &nbsp;·&nbsp;
+      RIDET <span class="fill">[N° RIDET]</span> &nbsp;·&nbsp;
+      Contact <span class="fill">[NOM, fonction, tél., courriel]</span>
+    </p>
+  </div>
+
+  <h2>1. Synthèse exécutive</h2>
+
+  <p><strong>Le SMS n'a plus de valeur marchande pour le particulier calédonien.</strong> Les quatre
+  Forfaits M incluent tous les SMS illimités, les Recharges Packagées également, et une option Pack SMS
+  existe dès 318 F TTC. Toute proposition qui chercherait à vendre du volume, un quota ou un crédit
+  d'envoi au particulier serait redondante avec le catalogue Helia dès le premier jour.</p>
+
+  <p><strong>Nous ne vendons donc rien au particulier.</strong> Aucune ligne de notre modèle économique
+  ne repose sur l'envoi de SMS. Le socle reste gratuit, sans plafond payant, sans option d'extension,
+  sans compte obligatoire — et il le reste dans les trois scénarios financiers.</p>
+
+  <p>Notre proposition part d'un constat que le reste du catalogue ne peut pas adresser :
+  <strong>Mobitag est le seul canal de l'OPT-NC qui fonctionne quand la ligne mobile ne fonctionne
+  plus.</strong> Téléphone perdu, volé, cassé, déchargé, hors forfait, poste partagé d'une mairie ou
+  d'une médiathèque, personne sans mobile qui doit joindre un proche. Toutes les offres Helia supposent
+  une SIM active ; Mobitag est ce qui reste quand il n'y en a pas. C'est sa légitimité, et c'est
+  structurellement inaccessible à Helia PRO.</p>
+
+  <p>Nous en tirons trois leviers économiques, dont aucun ne touche au portefeuille de l'utilisateur :</p>
+
+  <ul>
+    <li><strong>Diviser par deux le coût du service.</strong> Le socle historique coûte
+    <strong>9,45 M F CFP par an</strong> en coût complet. Reconstruit en conteneurs open source, il
+    revient à <strong>4,8 M F CFP par an</strong>. C'est le pilier : une économie certaine, immédiate,
+    et sans aucun risque de cannibalisation puisqu'il s'agit de charges internes et non d'une offre.</li>
+    <li><strong>Transformer le service en apporteur d'affaires.</strong> L'exigence F10 demande déjà de
+    distinguer les usages professionnels et de les orienter vers Helia PRO. Nous en faisons une ligne
+    de valeur mesurée. Côté grand public, l'audience sans ligne active est une population que l'OPT-NC
+    ne touche aujourd'hui par aucun autre canal.</li>
+    <li><strong>Occuper le seul territoire vierge du catalogue : le destinataire.</strong> Tout ce que
+    vend Helia concerne l'émission. Personne ne s'occupe de ce que vit celui qui reçoit un message
+    depuis le 1000 : d'où vient-il, est-il légitime, puis-je répondre, puis-je signaler. C'est notre
+    fonctionnalité différenciante (F11), et elle réduit directement le coût de traitement des abus.</li>
+  </ul>
+
+  <div class="kpis">
+    <div class="kpi"><div class="v">4,8 M F</div>
+      <div class="l">Coût annuel du service après refonte, contre 9,45 M F aujourd'hui</div></div>
+    <div class="kpi"><div class="v">M24</div>
+      <div class="l">Point mort en scénario central, sur l'horizon demandé</div></div>
+    <div class="kpi"><div class="v">+5,5 M F</div>
+      <div class="l">Résultat annualisé en régime établi, scénario central</div></div>
+    <div class="kpi"><div class="v">0 F</div>
+      <div class="l">Ce que paie un particulier pour envoyer un Mobitag, dans tous les scénarios</div></div>
+  </div>
+
+  <div class="callout green">
+    <p><strong>Ce qui rend la non-redondance structurelle et non déclarative.</strong> Deux règles sont
+    inscrites dans le produit lui-même, et non dans nos intentions : <strong>un seul destinataire par
+    envoi, jamais de liste</strong>, et <strong>aucune API d'envoi exposée à des tiers</strong>. Avec
+    ces deux garde-fous, concurrencer la plateforme d'envoi en masse ou le kiosque Mobitag+ devient
+    techniquement impossible. Le jury peut le vérifier dans le POC.</p>
+  </div>
+
+  <p class="small">Le POC de la seconde phase démontrera le parcours gratuit refondu, le dispositif de
+  confiance sur le canal 1000, l'orientation des usages professionnels et le tableau de bord de
+  pilotage — conteneurisé, open source, déployé dans le cloud, sur données fictives.</p>
+
+  <div class="foot"><span>Mobitag Nouvelle Génération — Note de candidature</span><span>Page 1 / 8</span></div>
+</div>
+
+<!-- ══════════════════════════════ PAGE 2 ══════════════════════════════ -->
+<div class="page">
+  <div class="runhead"><span>2. Le besoin identifié</span><span>Challenge Mobitag 2026</span></div>
+
+  <h2>2. Le besoin identifié</h2>
+
+  <h3>2.1 Le point de départ : un service utile dont le modèle a disparu</h3>
+  <p>Mobitag permet depuis des années d'envoyer gratuitement un SMS depuis le web vers une ligne
+  Mobilis ou Liberté. L'usage existe toujours. Ce qui a disparu, c'est la raison économique qui le
+  justifiait : à l'époque où le SMS se payait à l'unité, offrir quelques envois était un geste
+  commercial lisible. Aujourd'hui, le SMS est inclus et illimité dans l'essentiel du catalogue. Le
+  service continue de coûter sans que personne ne sache plus dire ce qu'il rapporte.</p>
+
+  <p>C'est la vraie question posée par le challenge, et elle n'est pas technique. Il ne s'agit pas de
+  trouver quoi facturer, mais de <strong>retrouver ce que ce canal apporte à l'OPT-NC que rien d'autre
+  n'apporte</strong>.</p>
+
+  <h3>2.2 L'usage que le reste du catalogue ne peut pas servir</h3>
+  <p>Nous avons cherché ce que Mobitag fait et qu'aucune autre offre ne fait. La réponse tient en une
+  phrase : <strong>Mobitag fonctionne sans ligne mobile.</strong></p>
+
+  <p>Tout le catalogue Helia — forfaits, recharges, options, application de gestion — suppose une SIM
+  active et du crédit disponible. Mobitag est le seul point de contact qui subsiste quand cette
+  condition n'est pas remplie :</p>
+
+  <ul>
+    <li>téléphone perdu, volé ou cassé, et il faut prévenir un proche ou un employeur ;</li>
+    <li>batterie vide, et l'accès se fait depuis un ordinateur ;</li>
+    <li>ligne prépayée épuisée, hors forfait, ou suspendue ;</li>
+    <li>poste partagé d'une mairie, d'une médiathèque, d'une association, d'un établissement scolaire ;</li>
+    <li>personne sans mobile, notamment âgée ou en situation de précarité, qui doit joindre quelqu'un.</li>
+  </ul>
+
+  <p>Ces situations ont un point commun : <strong>l'utilisateur est en difficulté et l'OPT-NC est la
+  seule organisation en mesure de l'aider à cet instant précis.</strong> Ce n'est pas une audience
+  publicitaire, c'est une audience en besoin — et elle est aujourd'hui entièrement non servie au-delà
+  de l'envoi lui-même.</p>
+
+  <div class="callout amber">
+    <p><strong>Hypothèse prioritaire à valider.</strong> Nous estimons entre 12 % et 25 % la part des
+    utilisateurs de Mobitag ne disposant pas d'une ligne Helia active ou étant hors forfait. Cette
+    hypothèse est la plus structurante de notre modèle. Deux questions ont été adressées à
+    <em>concoursopt@lafrenchtech.nc</em> : la part réelle de cette population, et l'accessibilité du
+    service depuis l'étranger. Le modèle financier est construit pour rester soutenable même si cette
+    hypothèse est divisée par trois.</p>
+  </div>
+
+  <h3>2.3 L'angle mort : le destinataire</h3>
+  <p>Le second constat est plus frappant encore. <strong>Tout ce que commercialise l'OPT-NC en matière
+  de SMS se situe du côté de l'émetteur.</strong> Forfaits, packs, plateforme d'envoi en masse, kiosque
+  Mobitag+ : l'intégralité du catalogue vend la capacité d'envoyer.</p>
+
+  <p>Personne ne s'occupe de celui qui reçoit. Or un message arrivant depuis le 1000 pose au
+  destinataire quatre questions sans réponse : <em>qui me l'a envoyé, est-ce légitime, puis-je
+  répondre, puis-je signaler un abus ?</em> Ce vide n'est pas un détail d'expérience : c'est ce qui
+  fait qu'un message depuis le 1000 inspire aujourd'hui moins confiance qu'un SMS ordinaire, et c'est
+  ce qui alimente le support en réclamations.</p>
+
+  <p>Ce territoire est vierge, défendable, et structurellement invisible pour Helia PRO — dont les
+  clients sont les émetteurs. Sa valeur perçue est d'ailleurs attestée par le marché : un acteur local
+  tiers, Mobiplus, a fait de la réception des réponses son principal argument commercial, sans que ce
+  soit l'OPT-NC qui occupe ce terrain.</p>
+
+  <h3>2.4 Ce qui découle de ce diagnostic</h3>
+  <p>Un service gratuit, sur un marché de 268 000 habitants, dont le produit central n'a plus de valeur
+  marchande, ne peut pas être rendu rentable en le faisant payer. Il peut l'être en coûtant beaucoup
+  moins cher et en devenant utile à l'établissement autrement que par une facture. C'est exactement ce
+  que le dossier autorise : <em>« de nouveaux revenus, une réduction des coûts du service ou une
+  combinaison de ces deux leviers »</em>. Nous combinons les deux, en donnant le poids principal au
+  levier le plus certain.</p>
+
+  <div class="foot"><span>Mobitag Nouvelle Génération — Note de candidature</span><span>Page 2 / 8</span></div>
+</div>
+
+<!-- ══════════════════════════════ PAGE 3 ══════════════════════════════ -->
+<div class="page">
+  <div class="runhead"><span>3. La proposition de valeur</span><span>Challenge Mobitag 2026</span></div>
+
+  <h2>3. La proposition de valeur</h2>
+
+  <p>Nous proposons de reconstruire Mobitag autour de deux briques, l'une qui reste gratuite pour
+  toujours, l'autre qui occupe le territoire laissé vacant.</p>
+
+  <h3>3.1 Le socle libre — l'envoi, simplifié à l'os</h3>
+  <p>Une refonte complète de l'interface (F02), pensée d'abord pour un téléphone et une connexion
+  faible, et utilisable sans compte. Un destinataire, un message, un envoi.</p>
+  <ul>
+    <li><strong>Sans compte, sans inscription.</strong> Aucune donnée n'est demandée au-delà de ce que
+    l'envoi exige. Le numéro de l'émetteur reste facultatif.</li>
+    <li><strong>Un destinataire par envoi, toujours.</strong> Règle produit, pas règle d'usage : aucun
+    champ multiple, aucun import de liste, aucune API. C'est notre garde-fou anti-cannibalisation.</li>
+    <li><strong>Statut clair et reprise maîtrisée</strong> (F09) : l'utilisateur sait si son message
+    est parti, et une interruption ne lui fait pas perdre son texte.</li>
+    <li><strong>Accessible réellement</strong> (F08) : contrastes, tailles, navigation clavier, et un
+    fonctionnement dégradé correct en bas débit — condition d'usage en brousse comme sur un poste
+    partagé.</li>
+    <li><strong>Gratuit, sans plafond payant.</strong> Les limites d'usage existent pour prévenir
+    l'abus (F05), jamais pour vendre un dépassement. Aucune option ne permet d'en acheter davantage.</li>
+  </ul>
+
+  <h3>3.2 Le 1000 de confiance — notre fonctionnalité différenciante (F11)</h3>
+  <p>Nous donnons au destinataire ce que personne ne lui donne : la maîtrise de ce qu'il reçoit depuis
+  le 1000.</p>
+  <ul>
+    <li><strong>Vérification d'origine.</strong> Un message envoyé via Mobitag porte une référence
+    courte que le destinataire peut vérifier sur mobitag.nc. Il apprend si le message vient bien du
+    service, quand, et ce que l'émetteur a choisi de déclarer. Un message frauduleux se prétendant
+    émis par le 1000 devient vérifiable — donc réfutable.</li>
+    <li><strong>Signalement en un geste.</strong> Un abus se signale en un clic, sans compte, sans
+    formulaire. Le signalement alimente directement les dispositifs anti-abus (F05) au lieu de finir
+    en réclamation téléphonique.</li>
+    <li><strong>Maîtrise par le destinataire.</strong> Toute personne peut demander à ne plus recevoir
+    de Mobitag, immédiatement et sans justification.</li>
+  </ul>
+  <p>Cette brique a un coût de développement faible, se démontre intégralement en POC, et produit une
+  économie mesurable : elle réduit le traitement manuel des abus et des réclamations, poste que nous
+  chiffrons explicitement dans le modèle.</p>
+
+  <h3>3.3 L'orientation utile — mise en œuvre de l'exigence F10</h3>
+  <p>Le dossier impose de distinguer les usages grand public des besoins professionnels et d'orienter
+  ces derniers vers les offres existantes. Nous en faisons un parcours soigné plutôt qu'un message
+  d'erreur.</p>
+  <ul>
+    <li><strong>Côté professionnel</strong> : quand un faisceau d'indices signale un usage
+    professionnel — récurrence, signature commerciale, gabarit de message —, l'utilisateur se voit
+    proposer, au moment précis où il se heurte à la limite, l'offre Helia PRO qui répond à son besoin.
+    Il n'est pas bloqué : il est mieux servi.</li>
+    <li><strong>Côté grand public</strong> : lorsqu'un utilisateur se trouve manifestement sans ligne
+    active, une information claire sur les offres Helia lui est présentée. Jamais dans le contenu d'un
+    message personnel, jamais dissimulée, toujours refusable.</li>
+  </ul>
+
+  <div class="callout">
+    <p><strong>Ce que nous refusons explicitement de faire.</strong> Pas de revente de données, pas de
+    profilage du contenu des messages, pas de publicité insérée dans un message personnel, pas de
+    quota vendu, pas de marque blanche, pas d'API tierce. Ces refus ne sont pas des contraintes subies :
+    ce sont les conditions pour que le service reste crédible auprès de ses utilisateurs, et donc
+    utile à l'OPT-NC.</p>
+  </div>
+
+  <h3>3.4 Ce que le jury verra dans le POC</h3>
+  <p>Le parcours gratuit complet de bout en bout (F01, F02), la vérification d'origine et le
+  signalement côté destinataire (F11), l'orientation d'un usage professionnel détecté (F10), le tableau
+  de bord de pilotage des volumes, coûts et apports (F06), la configuration des limites et contenus
+  (F07), ainsi que l'information et le consentement (F04). Le tout conteneurisé, open source, déployé
+  dans le cloud, sur données fictives et numéros contrôlés.</p>
+
+  <div class="foot"><span>Mobitag Nouvelle Génération — Note de candidature</span><span>Page 3 / 8</span></div>
+</div>
+
+<!-- ══════════════════════════════ PAGE 4 ══════════════════════════════ -->
+<div class="page">
+  <div class="runhead"><span>4. Positionnement dans l'écosystème OPT-NC</span><span>Challenge Mobitag 2026</span></div>
+
+  <h2>4. Positionnement — cartographie de non-redondance</h2>
+
+  <p>Le dossier demande comme preuve une <em>« cartographie des usages couverts, des complémentarités
+  et des éléments volontairement exclus »</em>. Nous la présentons offre par offre, y compris pour les
+  services grand public, car c'est là que se situe le vrai risque de redondance.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:24%">Offre existante</th>
+        <th style="width:34%">Ce qu'elle couvre déjà</th>
+        <th style="width:42%">Ce que Mobitag NG ne fait pas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Forfaits M</strong><br><span class="small">2 Go à 100 Go, 1 000 à 10 000 F TTC/mois</span></td>
+        <td>SMS illimités pour tout titulaire, remise de 20 % pour les 18-25 ans et les 60 ans et plus</td>
+        <td><span class="tag no">EXCLU</span> Aucune vente de volume, de quota ou de crédit SMS au
+        particulier. Le SMS est déjà illimité : le vendre serait redondant par construction.</td>
+      </tr>
+      <tr>
+        <td><strong>Recharges Packagées</strong></td>
+        <td>Internet, appels et SMS illimités sur le prépayé</td>
+        <td><span class="tag no">EXCLU</span> Aucune recharge, aucun crédit, aucun rechargement.</td>
+      </tr>
+      <tr>
+        <td><strong>Option Pack SMS</strong><br><span class="small">dès 318 F TTC</span></td>
+        <td>Packs 100, 500 ou illimités</td>
+        <td><span class="tag no">EXCLU</span> Aucun pack, aucun palier payant au-delà de N envois.</td>
+      </tr>
+      <tr>
+        <td><strong>Plateforme d'envoi en masse</strong><br><span class="small">Helia PRO — 60 000 F HT/mois, 10 000 SMS inclus</span></td>
+        <td>Campagnes, alertes, notifications, SMS-MT et SMS-MO, raccordement fournisseurs de contenus</td>
+        <td><span class="tag no">EXCLU</span> Aucun envoi multi-destinataires, aucun import de liste,
+        aucune API exposée à des tiers, aucune campagne. Règle produit : un destinataire par envoi.</td>
+      </tr>
+      <tr>
+        <td><strong>Kiosque SMS Mobitag+</strong></td>
+        <td>Numéros courts, services surtaxés et interactifs, reversement aux fournisseurs de contenus</td>
+        <td><span class="tag no">EXCLU</span> Aucun numéro court, aucune surtaxe, aucun reversement de
+        contenu, aucun service interactif payant.</td>
+      </tr>
+      <tr>
+        <td><strong>Annuaire 1012</strong></td>
+        <td>Annuaire et annuaire inversé</td>
+        <td><span class="tag no">EXCLU</span> Aucune recherche d'identité à partir d'un numéro.
+        Notre vérification porte sur l'origine d'un message, jamais sur l'identité d'une personne.</td>
+      </tr>
+      <tr>
+        <td><strong>Application Helia</strong></td>
+        <td>Suivi de consommation, rechargement, gestion de ligne</td>
+        <td><span class="tag no">EXCLU</span> Aucune gestion de compte, de facture ou de consommation.</td>
+      </tr>
+      <tr>
+        <td><strong>Options de ligne</strong><br><span class="small">3 numéros préférés, appel en instance, appel secret, messagerie vocale, renvoi, blocages</span></td>
+        <td>Confort et maîtrise de la ligne mobile</td>
+        <td><span class="tag no">EXCLU</span> Aucune option de ligne. Nous n'intervenons jamais sur la
+        ligne mobile de l'utilisateur.</td>
+      </tr>
+      <tr>
+        <td><strong>Numéro vert / STOP SMS</strong></td>
+        <td>Accessibilité et opt-out réglementaire pour les professionnels</td>
+        <td><span class="tag no">EXCLU</span> Aucun dispositif d'opt-out opéré pour le compte de tiers.
+        Notre refus de réception ne concerne que les messages émis via Mobitag.</td>
+      </tr>
+      <tr class="tot">
+        <td><strong>Mobitag NG</strong></td>
+        <td colspan="2"><span class="tag ok">NOTRE PÉRIMÈTRE</span> &nbsp;L'envoi d'un message unique,
+        gratuit, sans ligne mobile ni compte — et la confiance du destinataire sur le canal 1000.
+        Deux territoires qu'aucune offre du catalogue n'occupe.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>4.1 Complémentarités recherchées</h3>
+  <ul>
+    <li><strong>Vers Helia PRO</strong> : Mobitag devient une source de demandes professionnelles
+    qualifiées, captées au moment du besoin. Le service alimente l'offre au lieu de la doubler.</li>
+    <li><strong>Vers les offres grand public</strong> : Mobitag est le seul canal atteignant les
+    personnes sans ligne active. Il devient un point de contact de reconquête pour l'établissement.</li>
+    <li><strong>Vers le socle technique</strong> : la passerelle SMS, l'anti-abus et l'observabilité
+    construits pour Mobitag sont mutualisables avec d'autres services de l'OPT-NC.</li>
+  </ul>
+
+  <h3>4.2 Maîtrise du risque de cannibalisation</h3>
+  <p>Le risque n'est pas traité par une clause mais par la conception. <strong>Un destinataire par
+  envoi</strong> et <strong>aucune API exposée</strong> rendent l'envoi en masse techniquement
+  impossible depuis Mobitag, quel que soit l'usage qu'on voudrait en faire. S'y ajoutent des quotas par
+  appareil et par numéro, la détection des gabarits répétés, et l'orientation systématique vers Helia
+  PRO dès qu'un usage professionnel est reconnu. Nous proposons de suivre ce risque par un indicateur
+  explicite au tableau de bord : le nombre d'usages professionnels détectés et orientés, mis en regard
+  du volume grand public.</p>
+
+  <div class="foot"><span>Mobitag Nouvelle Génération — Note de candidature</span><span>Page 4 / 8</span></div>
+</div>
+
+<!-- ══════════════════════════════ PAGE 5 ══════════════════════════════ -->
+<div class="page">
+  <div class="runhead"><span>5. Le modèle économique</span><span>Challenge Mobitag 2026</span></div>
+
+  <h2>5. Le modèle économique</h2>
+
+  <p>Le modèle complet figure dans le classeur joint : projection mensuelle sur 24 mois, trois
+  scénarios, hypothèses sourcées et analyse de sensibilité. Les formules d'équilibre du dossier y sont
+  appliquées littéralement. Le compte de résultat modélisé est celui du <strong>service dans son
+  ensemble, en vue OPT-NC</strong> — choix imposé par la formule d'équilibre, qui intègre les coûts
+  évités, lesquels sont ceux de l'établissement.</p>
+
+  <h3>5.1 Le payeur, et ce qu'il paie</h3>
+  <table>
+    <thead><tr><th style="width:22%">Qui</th><th style="width:20%">Ce qu'il paie</th><th>Pourquoi il y a intérêt</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Le particulier</strong><br><span class="small">utilisateur du service</span></td>
+        <td><strong>Rien. Jamais.</strong></td>
+        <td>Le socle gratuit est la condition du challenge et la raison d'être du service. Nous n'avons
+        aucune ligne de revenu à lui opposer : le SMS lui est déjà offert par son forfait.</td></tr>
+      <tr><td><strong>L'OPT-NC</strong><br><span class="small">propriétaire du service</span></td>
+        <td>Le build, puis un run deux fois moins cher</td>
+        <td>Il divise par deux le coût complet d'un service qu'il porte déjà, et récupère un canal de
+        contact vers une audience qu'il n'atteint pas autrement.</td></tr>
+      <tr><td><strong>Helia PRO</strong><br><span class="small">bénéficiaire interne</span></td>
+        <td>Rien directement</td>
+        <td>Reçoit des demandes professionnelles qualifiées, captées au moment du besoin, sans effort
+        d'acquisition.</td></tr>
+      <tr><td><strong>Un partenaire sponsor</strong><br><span class="small">ligne d'appoint</span></td>
+        <td>Un espace identifié et accepté</td>
+        <td>Visibilité sur un service d'utilité publique. <strong>Ligne nulle en scénario prudent</strong> :
+        le modèle n'en dépend jamais.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.2 Le pilier : diviser par deux le coût du service</h3>
+  <p>Nous avons décomposé le coût complet annuel actuel du service et appliqué à chaque poste un taux
+  d'évitement distinct, justifié séparément. L'ensemble est auditable dans le classeur.</p>
+
+  <table>
+    <thead><tr><th style="width:42%">Poste du service historique</th><th class="num">Coût annuel</th>
+      <th class="num">Évité (central)</th><th>Levier</th></tr></thead>
+    <tbody>
+      <tr><td>TMA et maintenance corrective</td><td class="num">3 600 000 F</td><td class="num">80 %</td>
+        <td>Stack open source, tests automatisés, déploiement reproductible</td></tr>
+      <tr><td>Exploitation interne (0,25 ETP)</td><td class="num">2 000 000 F</td><td class="num">75 %</td>
+        <td>Observabilité et déploiements sans interruption</td></tr>
+      <tr><td>Hébergement et infrastructure allouée</td><td class="num">1 800 000 F</td><td class="num">85 %</td>
+        <td>Socle conteneurisé mutualisé</td></tr>
+      <tr><td>Support N1/N2 : abus et réclamations</td><td class="num">900 000 F</td><td class="num">75 %</td>
+        <td><strong>Dispositif de confiance sur le canal 1000 (F11)</strong></td></tr>
+      <tr><td>Acheminement des SMS du service</td><td class="num">700 000 F</td><td class="num">100 %</td>
+        <td><em>Charge reprise à l'identique par le service refondu, où elle figure en coût variable :
+        neutre au différentiel, présentée des deux côtés pour l'auditabilité</em></td></tr>
+      <tr><td>Licences et composants propriétaires</td><td class="num">450 000 F</td><td class="num">95 %</td>
+        <td>Exigence open source du challenge</td></tr>
+      <tr class="tot"><td>Coût complet annuel actuel</td><td class="num">9 450 000 F</td>
+        <td class="num">82 %</td><td>soit <strong>7 712 500 F par an</strong> d'économie en régime établi</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout green">
+    <p><strong>Absence de double comptage.</strong> Les coûts évités correspondent à l'arrêt du service
+    historique. Les coûts d'exploitation du service refondu — run, cloud, support, communication — sont
+    portés séparément en coûts fixes, et ne démarrent qu'à la bascule : avant, la charge de construction
+    est portée par l'investissement, jamais par le run. Aucune charge n'est comptée deux fois, dans
+    aucun sens. <strong>Résultat net : le socle gratuit revient à 4,8 M F par an contre 9,45 M F
+    aujourd'hui.</strong></p>
+  </div>
+
+  <h3>5.3 Les lignes de revenus, et leur poids réel</h3>
+  <p>Elles sont volontairement minoritaires. Nous préférons un modèle dont l'équilibre repose sur un
+  levier certain plutôt que sur une hypothèse de marché.</p>
+  <ul>
+    <li><strong>Apport d'affaires B2B vers Helia PRO.</strong> Valorisé en <em>marge</em> attribuée, non
+    en chiffre d'affaires, avec un taux d'attribution de 40 % seulement — l'effort commercial Helia
+    conserve la majorité de la valeur.</li>
+    <li><strong>Apport d'affaires B2C, activation de lignes.</strong> Même principe, attribution
+    minoritaire de 35 % : la souscription reste portée par le réseau de distribution.</li>
+    <li><strong>Sponsoring consenti.</strong> Inventaire étroit sur un marché de 268 000 habitants.
+    Nul en prudent, plafonné ailleurs.</li>
+  </ul>
+  <p class="nb">Aucune rémunération du candidat ne dépend du volume de SMS envoyés : le modèle
+  n'incite à aucun moment à gonfler artificiellement le trafic.</p>
+
+  <div class="foot"><span>Mobitag Nouvelle Génération — Note de candidature</span><span>Page 5 / 8</span></div>
+</div>
+
+<!-- ══════════════════════════════ PAGE 6 ══════════════════════════════ -->
+<div class="page">
+  <div class="runhead"><span>5. Le modèle économique (suite)</span><span>Challenge Mobitag 2026</span></div>
+
+  <h3>5.4 Projection 24 mois — trois scénarios</h3>
+  <p>Montants en F CFP, cumulés sur 24 mois. Formules du dossier appliquées telles quelles.</p>
+
+  <table>
+    <thead><tr><th style="width:34%">Poste</th><th class="num">Prudent</th><th class="num">Central</th>
+      <th class="num">Ambitieux</th></tr></thead>
+    <tbody>
+      <tr><td>Apport d'affaires B2B — Helia PRO</td><td class="num">60 600</td>
+        <td class="num">995 339</td><td class="num">8 434 791</td></tr>
+      <tr><td>Apport d'affaires B2C — activation de lignes</td><td class="num">95 276</td>
+        <td class="num">1 498 161</td><td class="num">9 016 672</td></tr>
+      <tr><td>Sponsoring consenti</td><td class="num">0</td>
+        <td class="num">1 020 000</td><td class="num">3 360 000</td></tr>
+      <tr><td><strong>Chiffre d'affaires</strong></td><td class="num"><strong>155 876</strong></td>
+        <td class="num"><strong>3 513 500</strong></td><td class="num"><strong>20 811 463</strong></td></tr>
+      <tr><td>Coûts variables et reversements</td><td class="num">−1 646 427</td>
+        <td class="num">−2 740 923</td><td class="num">−3 911 970</td></tr>
+      <tr><td><strong>Marge contributive</strong></td><td class="num"><strong>−1 490 551</strong></td>
+        <td class="num"><strong>772 577</strong></td><td class="num"><strong>16 899 492</strong></td></tr>
+      <tr><td><strong>Coûts évités</strong></td><td class="num"><strong>7 046 354</strong></td>
+        <td class="num"><strong>8 997 917</strong></td><td class="num"><strong>11 121 250</strong></td></tr>
+      <tr><td>Coûts fixes</td><td class="num">−4 726 667</td>
+        <td class="num">−4 480 000</td><td class="num">−4 176 000</td></tr>
+      <tr><td>Investissements</td><td class="num">−5 500 000</td>
+        <td class="num">−4 800 000</td><td class="num">−4 200 000</td></tr>
+      <tr><td>Fiscalité (IS 30 %, report des déficits)</td><td class="num">0</td>
+        <td class="num">−147 148</td><td class="num">−5 893 423</td></tr>
+      <tr class="tot"><td>ÉQUILIBRE ÉCONOMIQUE 24 MOIS</td><td class="num">−4 670 864</td>
+        <td class="num">+343 345</td><td class="num">+13 751 320</td></tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead><tr><th style="width:34%">Indicateur de pilotage</th><th class="num">Prudent</th>
+      <th class="num">Central</th><th class="num">Ambitieux</th></tr></thead>
+    <tbody>
+      <tr><td>Point mort</td><td class="num">≈ M51</td><td class="num"><strong>M24</strong></td>
+        <td class="num">M14</td></tr>
+      <tr><td>Besoin de financement maximal</td><td class="num">−6 665 768</td>
+        <td class="num">−5 897 720</td><td class="num">−5 067 791</td></tr>
+      <tr><td>Résultat annualisé en régime établi</td><td class="num">+2 143 721</td>
+        <td class="num">+5 505 383</td><td class="num">+20 650 533</td></tr>
+      <tr><td>Couverture des coûts d'exploitation à M24</td><td class="num">155 %</td>
+        <td class="num">314 %</td><td class="num">1 099 %</td></tr>
+      <tr><td>Part des coûts évités dans l'équilibre</td><td class="num">112 %</td>
+        <td class="num">72 %</td><td class="num">27 %</td></tr>
+      <tr><td>Utilisateurs actifs mensuels à M24</td><td class="num">7 042</td>
+        <td class="num">14 117</td><td class="num">22 000</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout green">
+    <p><strong>La lecture honnête du scénario prudent.</strong> Il n'atteint pas le point mort sur
+    l'horizon : l'investissement de refonte s'amortit en année 4, ce qui est le rythme normal d'un
+    projet de refonte de système d'information. Mais <strong>dès le mois 24, le service couvre 155 % de
+    ses coûts d'exploitation</strong> et dégage un résultat annualisé positif de 2,1 M F. Autrement dit,
+    même dans l'hypothèse la plus défavorable — sans aucun sponsoring, avec les taux de conversion les
+    plus bas et une audience trois fois plus petite qu'espéré — <strong>le service s'autofinance en
+    exploitation et coûte structurellement moins cher qu'aujourd'hui.</strong></p>
+  </div>
+
+  <h3>5.5 Sensibilité : ce qui peut faire échouer le modèle</h3>
+  <table>
+    <thead><tr><th style="width:30%">Variable</th><th style="width:13%">Test</th>
+      <th style="width:16%" class="num">Impact 24M</th><th>Maîtrise</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Taux d'évitement des coûts</strong></td><td>−10 points</td>
+        <td class="num">−1 097 307</td>
+        <td><span class="tag id">CRITIQUE</span> Audit contradictoire du coût complet avec l'OPT-NC dès
+        le sprint. Taux déjà prudents poste par poste.</td></tr>
+      <tr><td>Décalage du mois de bascule</td><td>+3 mois</td><td class="num">−1 928 125</td>
+        <td>Bascule progressive, reprise sans interruption de service.</td></tr>
+      <tr><td>Part des MAU sans ligne active</td><td>−1/3</td><td class="num">−499 387</td>
+        <td>Question posée à l'OPT-NC. Absorbable par le pilier coûts évités.</td></tr>
+      <tr><td>Investissement de build</td><td>+30 %</td><td class="num">−1 440 000</td>
+        <td>Périmètre POC resserré, industrialisation par lots.</td></tr>
+      <tr><td>Conversion vers Helia PRO</td><td>−50 %</td><td class="num">−497 670</td>
+        <td>Ligne minoritaire : le modèle tient sans elle.</td></tr>
+      <tr><td>Sponsoring</td><td>−100 %</td><td class="num">−867 000</td>
+        <td>Déjà nul en scénario prudent.</td></tr>
+    </tbody>
+  </table>
+
+  <p class="nb"><strong>Test de robustesse combiné</strong> — toutes les lignes de revenus à zéro, seul
+  le levier coûts évités subsiste au taux prudent : l'équilibre 24 mois s'établit à −4,83 M F, avec un
+  résultat d'exploitation qui reste positif en régime. C'est le plancher du modèle : ce que vaut la
+  proposition si <em>aucune</em> hypothèse commerciale ne se réalise.</p>
+
+  <h3>5.6 Éléments de validation en cours</h3>
+  <p><span class="fill">[À compléter : entretiens utilisateurs réalisés, test de la page de
+  présentation, lettres d'intérêt, échanges avec des acteurs institutionnels — mairies, médiathèques,
+  associations —, comparaison avec des services similaires hors territoire.]</span></p>
+
+  <div class="foot"><span>Mobitag Nouvelle Génération — Note de candidature</span><span>Page 6 / 8</span></div>
+</div>
+
+<!-- ══════════════════════════════ PAGE 7 ══════════════════════════════ -->
+<div class="page">
+  <div class="runhead"><span>6. Confiance · 7. Mise en œuvre</span><span>Challenge Mobitag 2026</span></div>
+
+  <h2>6. Confiance : sécurité, données et prévention des abus</h2>
+
+  <p>Le critère pèse 15 points avec un minimum éliminatoire de 8. Nous le traitons comme une exigence
+  de conception, pas comme une annexe.</p>
+
+  <h3>6.1 Minimisation des données</h3>
+  <ul>
+    <li><strong>Aucun compte, aucune donnée personnelle conservée au-delà du nécessaire.</strong> Le
+    numéro de l'émetteur reste facultatif ; le contenu du message n'est pas conservé après remise.</li>
+    <li><strong>Durées de conservation explicites et courtes</strong>, affichées à l'utilisateur
+    (F04) : ce qui est gardé, pourquoi, et pour combien de temps.</li>
+    <li><strong>Journaux techniques sans contenu de message</strong>, sans secret, sans donnée
+    personnelle non nécessaire — conformément à la section 15 du dossier.</li>
+    <li><strong>Aucune revente, aucun profilage</strong> des correspondants ou du contenu. Cette
+    interdiction est inscrite dans le modèle économique lui-même : aucune de nos lignes de revenus
+    n'en dépend, donc rien ne pousse à la transgresser.</li>
+  </ul>
+
+  <h3>6.2 Prévention des abus (F05)</h3>
+  <ul>
+    <li>Quotas par appareil, par numéro et par fenêtre glissante, avec limitation progressive du débit
+    plutôt que blocage sec.</li>
+    <li>Détection des gabarits répétés et des séquences de numéros, signature d'un envoi automatisé.</li>
+    <li>Preuve de présence humaine proportionnée, déclenchée sur signal de risque et non
+    systématiquement — pour ne pas pénaliser l'usager en difficulté.</li>
+    <li><strong>Signalement en un geste côté destinataire</strong>, alimentant directement la détection.
+    C'est notre principal apport : l'abus est signalé par celui qui le subit, au moment où il le subit.</li>
+    <li>Journalisation des décisions anti-abus, permettant de justifier un blocage et de le lever.</li>
+  </ul>
+
+  <h3>6.3 Sécurité et conformité</h3>
+  <ul>
+    <li>Chiffrement en transit et au repos, gestion des secrets hors du code, aucune donnée réelle dans
+    les environnements de démonstration.</li>
+    <li>Composants open source à jour, licences identifiées, chaîne de construction reproductible et
+    inventaire des dépendances.</li>
+    <li><strong>POC sans donnée client réelle, sans accès à la production</strong>, avec simulateur
+    clairement identifié ou environnement de test encadré fourni par l'OPT-NC.</li>
+    <li>Avant tout pilote sur données ou numéros réels : analyse complémentaire et validation par le
+    DPO et le RSSI de l'OPT-NC, que nous intégrons à la feuille de route comme un jalon bloquant.</li>
+  </ul>
+
+  <h2>7. Mise en œuvre envisagée pour la seconde phase</h2>
+
+  <p>Le dossier n'attend ni architecture définitive ni dossier technique distinct. Nous indiquons les
+  principes qui guideront nos choix, en restant libres de les ajuster pendant le sprint.</p>
+
+  <table>
+    <thead><tr><th style="width:26%">Principe</th><th>Ce que cela implique concrètement</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Conteneurisation</strong><br><span class="small">exigence du challenge</span></td>
+        <td>Livraison sous forme de conteneurs avec les fichiers et instructions de lancement. Aucun
+        moteur imposé : la solution démarre indifféremment sous Docker ou Podman.</td></tr>
+      <tr><td><strong>Open source intégral</strong><br><span class="small">exigence du challenge</span></td>
+        <td>Composants applicatifs open source, licences listées. Aucun service propriétaire en
+        dépendance fonctionnelle : le POC doit pouvoir être reproduit à partir des seuls éléments remis.</td></tr>
+      <tr><td><strong>Simplicité assumée</strong></td>
+        <td>Le service rend un service simple ; l'architecture doit l'être aussi. Nous privilégions un
+        découpage minimal et lisible plutôt qu'une démonstration de complexité.</td></tr>
+      <tr><td><strong>Sobriété</strong></td>
+        <td>Charge sans état, montée en charge horizontale, empreinte minimale au repos — c'est ce qui
+        rend crédible la division par deux du coût d'exploitation.</td></tr>
+      <tr><td><strong>Réversibilité</strong></td>
+        <td>Formats de données ouverts et exportables, aucune adhérence à un fournisseur cloud
+        particulier. L'OPT-NC doit pouvoir reprendre ou déplacer le service.</td></tr>
+      <tr><td><strong>Démonstrabilité</strong></td>
+        <td>Jeu de données fictif fourni, démonstration accessible au jury dans le cloud, documentation
+        d'installation et d'utilisation permettant de relancer l'ensemble sans nous.</td></tr>
+    </tbody>
+  </table>
+
+  <p class="nb">Les capacités obligatoires F01 à F10 sont toutes couvertes par le périmètre décrit en
+  section 3. F11 est porté par le dispositif de confiance sur le canal 1000.</p>
+
+  <div class="foot"><span>Mobitag Nouvelle Génération — Note de candidature</span><span>Page 7 / 8</span></div>
+</div>
+
+<!-- ══════════════════════════════ PAGE 8 ══════════════════════════════ -->
+<div class="page">
+  <div class="runhead"><span>8. Feuille de route · 9. Équipe · 10. Déclarations</span><span>Challenge Mobitag 2026</span></div>
+
+  <h2>8. Feuille de route et passage à l'échelle</h2>
+
+  <table>
+    <thead><tr><th style="width:16%">Étape</th><th style="width:17%">Période</th>
+      <th>Contenu et livrable</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Sprint POC</strong></td><td>10 oct. → 4 nov. 2026</td>
+        <td>Parcours gratuit refondu, dispositif de confiance 1000, orientation F10, tableau de bord.
+        Conteneurs, code source, documentation, jeu de données fictif, démonstration cloud.</td></tr>
+      <tr><td><strong>Demo Day</strong></td><td>5 novembre 2026</td>
+        <td>8 min de démonstration, 5 min de modèle économique, 12 min de questions.</td></tr>
+      <tr><td><strong>Cadrage</strong></td><td>Sous réserve — T1 2027</td>
+        <td>Audit contradictoire du coût complet réel, validation DPO et RSSI, convention d'attribution
+        des apports, définition des indicateurs de suivi.</td></tr>
+      <tr><td><strong>Pilote 90 jours</strong></td><td>T2 2027</td>
+        <td>Mise en service sur périmètre restreint, mesure réelle des volumes, des taux d'orientation
+        et des économies. <strong>Jalon de décision</strong> : poursuite conditionnée aux résultats mesurés.</td></tr>
+      <tr><td><strong>Bascule</strong></td><td>M9 à M11 du projet</td>
+        <td>Reprise sans interruption, double run limité, arrêt du socle historique. C'est le moment où
+        les économies commencent à se réaliser.</td></tr>
+      <tr><td><strong>Industrialisation</strong></td><td>Contrat distinct</td>
+        <td>Run en régime, mutualisation de la passerelle SMS et de l'anti-abus avec d'autres services
+        de l'OPT-NC.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>8.1 Coût complet de possession et dépendances</h3>
+  <p>Investissement de refonte : <strong>4,8 M F CFP</strong> (scénario central), étalé sur 7 mois.
+  Exploitation en régime : <strong>4,8 M F CFP par an</strong>, contre 9,45 M F aujourd'hui. Besoin de
+  financement maximal sur l'horizon : <strong>5,9 M F CFP</strong>.</p>
+  <p>Dépendances principales : mise à disposition d'un environnement de test ou validation d'un
+  simulateur ; accès aux éléments de coût complet du service actuel pour l'audit contradictoire ;
+  validation DPO et RSSI avant tout pilote sur données réelles ; accord de l'OPT-NC sur le principe
+  d'attribution des apports d'affaires.</p>
+
+  <h3>8.2 Réplicabilité</h3>
+  <p>La combinaison — canal de secours sans ligne mobile, confiance côté destinataire, financement par
+  les coûts évités — n'a rien de spécifiquement calédonien. Elle est transposable à tout opérateur
+  historique exploitant un service SMS web hérité, ce qui ouvre une perspective au-delà du territoire.</p>
+
+  <h2>9. L'équipe</h2>
+  <p><span class="fill">[À compléter — Annexe A rubriques 1 à 3 : raison sociale, RIDET, forme
+  juridique, date de création, effectif, siège, site web. Membres de l'équipe, rôles, compétences en
+  produit, design, développement, données, cybersécurité et finance. Partenaires et sous-traitants
+  envisagés. Disponibilité de chacun pendant le sprint POC du 10 octobre au 5 novembre 2026.]</span></p>
+
+  <div class="callout">
+    <p><strong>Ce que le jury doit retenir sur la faisabilité.</strong> <span class="fill">[Adapter :
+    citer une réalisation comparable livrée par l'équipe, la maîtrise de la conteneurisation et des
+    composants open source exigés, et la capacité à mobiliser les jours-homme nécessaires sur les
+    quatre semaines du sprint.]</span></p>
+  </div>
+
+  <h2>10. Déclarations</h2>
+  <ul>
+    <li><strong>Éligibilité</strong> — structure immatriculée en Nouvelle-Calédonie ; aucun membre de
+    l'équipe n'appartient au jury, à l'équipe organisatrice, ni n'intervient dans la préparation ou
+    l'évaluation du challenge.</li>
+    <li><strong>Conflits d'intérêts</strong> — <span class="fill">[Déclarer toute relation
+    professionnelle, contractuelle ou personnelle avec l'OPT-NC, la French Tech NC ou un membre du
+    jury. Une relation existante n'exclut pas, dès lors qu'elle est déclarée.]</span></li>
+    <li><strong>Propriété intellectuelle</strong> — nous garantissons disposer des droits et
+    autorisations nécessaires sur l'ensemble des composants, données et dépendances intégrés à la
+    proposition.</li>
+    <li><strong>Conformité technique</strong> — le POC reposera sur des technologies et composants
+    open source, avec licences identifiées, et sera livré sous forme de conteneurs déployables dans le
+    cloud.</li>
+    <li><strong>Données et éthique</strong> — aucune donnée client réelle, aucun fichier de numéros
+    réels, aucun contenu de SMS de production. Ni revente de données, ni spam, ni publicité dissimulée.</li>
+    <li><strong>Exactitude</strong> — les informations fournies dans la présente note, le modèle
+    financier et la vidéo sont exactes et sincères. Nous déclarons avoir pris connaissance du règlement
+    du Challenge Mobitag 2026 et en accepter l'intégralité des conditions.</li>
+  </ul>
+  <p class="nb">La déclaration sur l'honneur signée (Annexe B) est jointe au dossier.</p>
+
+  <hr style="border:none;border-top:2px solid #0B2B46;margin:4mm 0 2.5mm">
+  <p style="text-align:center;font-size:10pt;color:#0B2B46;margin:0">
+    <strong>Gratuit pour l'utilisateur, parce qu'il n'y a plus rien à lui vendre.<br>
+    Rentable pour l'écosystème, parce qu'un service peut valoir par ce qu'il économise
+    et par ceux qu'il ramène.</strong>
+  </p>
+
+  <div class="foot"><span>Mobitag Nouvelle Génération — Note de candidature</span><span>Page 8 / 8</span></div>
+</div>
+
+</body>
+</html>

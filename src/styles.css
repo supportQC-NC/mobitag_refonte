@@ -1,0 +1,551 @@
+/* ============================================================
+   TOKENS
+   Un seul endroit pour la couleur, le type et l'espace.
+   ============================================================ */
+:root{
+  color-scheme: light dark;
+
+  --encre:      #10262F;
+  --encre-doux: #4C6B72;
+  --fond:       #E7EDEB;
+  --surface:    #FFFFFF;
+  --trait:      #C7D4D2;
+  --lagon:      #0E8F8A;
+  --lagon-fonce:#0A6E6A;
+  --soleil:     #F5B700;
+  --alerte:     #B3261E;
+
+  --t-xs:.75rem; --t-sm:.875rem; --t-md:1rem; --t-lg:1.125rem;
+  --t-xl:1.375rem; --t-2xl:1.875rem; --t-msg:1.5rem;
+
+  --e1:.25rem; --e2:.5rem; --e3:.75rem; --e4:1rem;
+  --e5:1.5rem; --e6:2rem; --e7:3rem;
+
+  /* Espacements VERTICAUX, proportionnels à la hauteur disponible.
+     Objectif : le parcours d'envoi tient dans l'écran à l'arrivée, sans
+     que l'on ait à figer des hauteurs en dur. Sur un écran haut on
+     retrouve le confort d'origine ; sur un écran bas tout se resserre.
+     La borne basse reste au-dessus du seuil de lisibilité. */
+  --v2:clamp(.3rem, .7vh, .5rem);
+  --v3:clamp(.4rem, .9vh, .75rem);
+  --v4:clamp(.5rem, 1.3vh, 1rem);
+  --v5:clamp(.65rem, 1.9vh, 1.5rem);
+  --v6:clamp(.8rem, 2.5vh, 2rem);
+  --v7:clamp(.9rem, 3.2vh, 3rem);
+
+  --r-s:6px; --r-m:10px; --r-l:16px;
+
+  --ui: system-ui, -apple-system, "Segoe UI", "Noto Sans", Roboto, sans-serif;
+}
+
+/* CSS classique plutôt qu'imbriqué : le nesting avec @media interne
+   n'est supporté qu'à partir de Chrome 112 / Firefox 117 / Safari 16.5,
+   et un jury peut ouvrir la démo sur autre chose. */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --encre:      #E8F0EE;
+    --encre-doux: #9DB3B6;
+    --fond:       #0A1A20;
+    --surface:    #112830;
+    --trait:      #27454E;
+    --lagon:      #2CB6AE;
+    --lagon-fonce:#46CFC6;
+    --alerte:     #FF9A91;
+  }
+}
+:root[data-theme="dark"]{
+  --encre:#E8F0EE; --encre-doux:#9DB3B6; --fond:#0A1A20;
+  --surface:#112830; --trait:#27454E; --lagon:#2CB6AE;
+  --lagon-fonce:#46CFC6; --alerte:#FF9A91;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--fond);
+  color:var(--encre);
+  font-family:var(--ui);
+  font-size:var(--t-md);
+  line-height:1.5;
+
+  /* Bandeau, contenu, pied : trois lignes sur la hauteur de la fenêtre.
+     min-height et non height : si l'utilisateur agrandit le texte ou
+     zoome, la page redevient scrollable au lieu de tronquer le contenu. */
+  min-height:100dvh;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+}
+:where(a){color:var(--lagon-fonce)}
+:where(:focus-visible){
+  outline:3px solid var(--soleil);
+  outline-offset:2px;
+  border-radius:var(--r-s);
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important; animation:none !important}
+}
+
+/* ============================================================
+   BANDEAU SIMULATION — non masquable, exigé par le règlement
+   ============================================================ */
+.simulation{
+  background:var(--soleil);
+  color:#10262F;
+  font-size:var(--t-sm);
+  padding:var(--e2) var(--e4);
+  text-align:center;
+}
+.simulation b{font-weight:650}
+
+/* ============================================================
+   EN-TÊTE
+   ============================================================ */
+.enveloppe{
+  max-width:1120px;
+  width:100%;
+  margin-inline:auto;
+  padding:var(--v4) var(--e4) var(--v3);
+}
+.tete{
+  display:flex; flex-wrap:wrap; gap:var(--e4);
+  align-items:baseline; justify-content:space-between;
+  padding-block:0 var(--v4);
+}
+.marque{
+  font-size:clamp(1.4rem, 3.4vh, 1.875rem);
+  font-weight:700;
+  letter-spacing:-.025em;
+  margin:0;
+}
+.marque span{color:var(--lagon)}
+.accroche{
+  margin:var(--e1) 0 0;
+  color:var(--encre-doux);
+  max-width:72ch;
+  font-size:clamp(.95rem, 2vh, 1.125rem);
+}
+.etat{
+  display:flex; align-items:center; gap:var(--e2);
+  font-size:var(--t-sm); color:var(--encre-doux);
+}
+.pastille{
+  width:9px; height:9px; border-radius:50%;
+  background:var(--lagon); flex:none;
+}
+
+/* ============================================================
+   GRILLE
+   ============================================================ */
+.grille{
+  display:grid;
+  gap:var(--v6);
+  grid-template-columns:1fr;
+  align-items:start;
+}
+@media (min-width:62rem){
+  .grille{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); gap:var(--v6) var(--e7)}
+  .apercu{position:sticky; top:var(--e5)}
+}
+
+/* ============================================================
+   FORMULAIRE
+   ============================================================ */
+.champ{margin-bottom:var(--v4)}
+.champ > label,
+.legende{
+  display:block;
+  font-size:var(--t-sm);
+  font-weight:600;
+  margin-bottom:var(--e2);
+}
+.aide{
+  font-size:var(--t-sm);
+  color:var(--encre-doux);
+  margin:var(--e1) 0 0;
+  line-height:1.35;
+}
+
+.numero{
+  display:flex;
+  border:1px solid var(--trait);
+  border-radius:var(--r-m);
+  background:var(--surface);
+  overflow:hidden;
+  max-width:22rem;
+}
+.numero:focus-within{
+  outline:3px solid var(--soleil); outline-offset:2px;
+}
+.indicatif{
+  display:flex; align-items:center;
+  padding-inline:var(--e3);
+  background:var(--fond);
+  border-right:1px solid var(--trait);
+  color:var(--encre-doux);
+  font-variant-numeric:tabular-nums;
+}
+.numero input{
+  flex:1; min-width:0;
+  border:0; outline:0; background:transparent;
+  color:inherit; font:inherit;
+  font-size:var(--t-lg);
+  font-variant-numeric:tabular-nums;
+  letter-spacing:.06em;
+  padding:var(--v3) var(--e3);
+}
+
+/* --- La carte message : l'élément fort de la page --- */
+.carte-message{
+  background:var(--surface);
+  border:1px solid var(--trait);
+  border-radius:var(--r-l);
+  padding:var(--v4) var(--e5) var(--v3);
+}
+.carte-message textarea{
+  display:block; width:100%;
+  border:0; outline:0; resize:vertical;
+  background:transparent; color:inherit;
+  font-family:inherit;
+  font-size:clamp(1.1rem, 2.6vh, 1.5rem);
+  line-height:1.4;
+  min-height:clamp(4.5rem, 13vh, 8.5rem);
+  padding:0;
+}
+.carte-message textarea::placeholder{color:var(--encre-doux); opacity:.7}
+
+/* Le budget de 150 caractères, montré comme une réserve qui se consomme */
+.budget{margin-top:var(--v3)}
+.jauge{
+  height:3px; border-radius:2px;
+  background:var(--trait);
+  overflow:hidden;
+}
+.jauge i{
+  display:block; height:100%;
+  width:var(--reste, 100%);
+  background:var(--lagon);
+  transition:width .12s linear, background-color .2s;
+}
+.jauge[data-niveau="tendu"] i{background:var(--soleil)}
+.jauge[data-niveau="plein"] i{background:var(--alerte)}
+.budget p{
+  margin:var(--e2) 0 0;
+  font-size:var(--t-sm);
+  color:var(--encre-doux);
+  font-variant-numeric:tabular-nums;
+}
+
+.signature{
+  margin-top:var(--v4);
+  border:1px solid var(--trait);
+  border-radius:var(--r-m);
+  background:var(--surface);
+  padding:var(--e3) var(--e4);
+  display:flex; flex-wrap:wrap; align-items:center; gap:var(--e3);
+}
+.signature label{font-size:var(--t-sm); font-weight:600; margin:0}
+.signature input{
+  flex:1; min-width:9rem;
+  border:0; outline:0; background:transparent;
+  color:inherit; font:inherit; padding:var(--e1) 0;
+}
+
+.controle{
+  display:flex; gap:var(--e3);
+  align-items:flex-start;
+  background:var(--surface);
+  border:1px solid var(--trait);
+  border-radius:var(--r-m);
+  padding:var(--v3) var(--e4);
+  margin-bottom:var(--v4);
+}
+.controle input[type=checkbox]{
+  width:1.25rem; height:1.25rem; margin:.15rem 0 0; flex:none;
+  accent-color:var(--lagon);
+}
+.controle p{margin:0; font-size:var(--t-sm)}
+.controle .aide{font-size:var(--t-xs)}
+.controle .aide{margin-top:var(--e1)}
+
+.envoyer{
+  display:inline-block;
+  border:0; border-radius:var(--r-m);
+  background:var(--lagon-fonce);
+  color:#fff;
+  font:inherit; font-weight:650; font-size:var(--t-lg);
+  padding:var(--v3) var(--e6);
+  cursor:pointer;
+  transition:background-color .15s;
+}
+.envoyer:hover{background:var(--lagon)}
+.envoyer:disabled{background:var(--trait); color:var(--encre-doux); cursor:not-allowed}
+
+.conditions{
+  margin-top:var(--v4);
+  padding-top:var(--v3);
+  border-top:1px solid var(--trait);
+  font-size:var(--t-sm);
+  color:var(--encre-doux);
+}
+.conditions summary{
+  cursor:pointer;
+  padding:var(--e1) 0;
+  border-radius:var(--r-s);
+}
+.conditions summary:hover{color:var(--encre)}
+.conditions ul{margin:var(--e2) 0 0; padding-left:1.1rem}
+.conditions li{margin-bottom:var(--e1)}
+
+/* ============================================================
+   APERÇU DESTINATAIRE
+   ============================================================ */
+.apercu h2{
+  font-size:var(--t-lg); margin:0 0 var(--v2);
+}
+.apercu > p{
+  margin:0 0 var(--v3);
+  color:var(--encre-doux);
+  font-size:var(--t-sm);
+  max-width:38ch;
+}
+.recu{
+  background:var(--surface);
+  border:1px solid var(--trait);
+  border-radius:var(--r-l);
+  overflow:hidden;
+}
+.recu-tete{
+  display:flex; align-items:center; gap:var(--e3);
+  padding:var(--e3) var(--e4);
+  border-bottom:1px solid var(--trait);
+}
+.recu-tete .de{
+  width:2.25rem; height:2.25rem; border-radius:50%;
+  background:var(--lagon); color:#fff;
+  display:grid; place-items:center;
+  font-size:var(--t-sm); font-weight:700;
+  font-variant-numeric:tabular-nums;
+  flex:none;
+}
+.recu-tete b{display:block; font-size:var(--t-sm)}
+.recu-tete span{font-size:var(--t-xs); color:var(--encre-doux)}
+.recu-corps{
+  padding:var(--v3) var(--e4);
+  font-size:var(--t-md);
+  line-height:1.5;
+  min-height:clamp(3.5rem, 11vh, 6rem);
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+/* Placeholder porté par un vrai élément et non par ::before :
+   le contenu généré en CSS n'est pas restitué de façon fiable par les
+   lecteurs d'écran, et disparaît si les styles ne chargent pas. */
+.recu-vide{color:var(--encre-doux)}
+.recu-pied{
+  border-top:1px dashed var(--trait);
+  padding:var(--e3) var(--e4);
+  font-size:var(--t-xs);
+  color:var(--encre-doux);
+  display:flex; flex-wrap:wrap; gap:var(--e1) var(--e3);
+  justify-content:space-between;
+}
+.recu-pied code{
+  font-family:inherit; font-weight:700;
+  color:var(--encre); letter-spacing:.08em;
+}
+.confiance{
+  margin-top:var(--v3);
+  border-left:3px solid var(--lagon);
+  padding-left:var(--e4);
+  font-size:var(--t-sm);
+  color:var(--encre-doux);
+}
+.confiance strong{color:var(--encre); font-weight:600}
+
+/* ============================================================
+   CONFIRMATION
+   ============================================================ */
+.confirmation{
+  background:var(--surface);
+  border:1px solid var(--trait);
+  border-top:4px solid var(--soleil);
+  border-radius:var(--r-l);
+  padding:var(--e5);
+}
+.confirmation h2{margin:0 0 var(--e2); font-size:var(--t-xl)}
+.confirmation p{margin:0 0 var(--e4); color:var(--encre-doux); max-width:44ch}
+.etapes{list-style:none; margin:0 0 var(--e5); padding:0}
+.etapes li{
+  display:flex; gap:var(--e3); align-items:baseline;
+  padding:var(--e2) 0;
+  border-bottom:1px solid var(--trait);
+  font-size:var(--t-sm);
+}
+.etapes li:last-child{border-bottom:0}
+.etapes .heure{
+  color:var(--encre-doux); font-variant-numeric:tabular-nums;
+  min-width:4.5rem;
+}
+.etapes .attente{color:var(--encre-doux)}
+.lien-retour{
+  background:none; border:1px solid var(--trait);
+  border-radius:var(--r-m); color:inherit;
+  font:inherit; font-weight:600;
+  padding:var(--e3) var(--e5); cursor:pointer;
+}
+.lien-retour:hover{border-color:var(--lagon)}
+
+/* ============================================================
+   ÉTAT D'ERREUR — F09 : reprise maîtrisée
+   ============================================================ */
+.echec{
+  border-top-color:var(--alerte);
+}
+.echec h2{color:var(--alerte)}
+.rejeu{
+  display:flex; flex-wrap:wrap; gap:var(--e3);
+}
+.rejeu .envoyer{font-size:var(--t-md); padding:var(--e3) var(--e5)}
+.brouillon{
+  margin-top:var(--e4);
+  background:var(--fond);
+  border-radius:var(--r-m);
+  padding:var(--e3) var(--e4);
+  font-size:var(--t-sm);
+  color:var(--encre-doux);
+}
+.brouillon b{color:var(--encre); font-weight:600}
+
+/* ============================================================
+   ORIENTATION PROFESSIONNELLE — F10
+   ============================================================ */
+.pro{
+  margin-top:var(--e5);
+  background:var(--surface);
+  border:1px solid var(--trait);
+  border-left:3px solid var(--soleil);
+  border-radius:var(--r-m);
+  padding:var(--e4);
+}
+.pro h3{
+  margin:0 0 var(--e2);
+  font-size:var(--t-md);
+}
+.pro p{margin:0 0 var(--e3); font-size:var(--t-sm); color:var(--encre-doux)}
+.pro a{
+  display:inline-block;
+  font-size:var(--t-sm); font-weight:600;
+  color:var(--lagon-fonce);
+}
+.pro .refuser{
+  background:none; border:0; padding:0; margin-left:var(--e4);
+  font:inherit; font-size:var(--t-sm);
+  color:var(--encre-doux);
+  text-decoration:underline; cursor:pointer;
+}
+
+/* Erreur de champ */
+.erreur-champ{
+  margin:var(--e2) 0 0;
+  font-size:var(--t-sm);
+  color:var(--alerte);
+  font-weight:600;
+}
+.numero.invalide{border-color:var(--alerte)}
+
+.visuellement-cache{
+  position:absolute; width:1px; height:1px;
+  padding:0; margin:-1px; overflow:hidden;
+  clip-path:inset(50%); white-space:nowrap; border:0;
+}
+
+[hidden]{display:none !important}
+
+/* ============================================================
+   PIED
+   ============================================================ */
+.pied{
+  max-width:1120px; width:100%; margin-inline:auto;
+  padding:var(--v3) var(--e4);
+  border-top:1px solid var(--trait);
+  font-size:var(--t-xs); color:var(--encre-doux);
+  display:flex; flex-wrap:wrap; gap:var(--e2) var(--e4);
+  justify-content:space-between; align-items:center;
+}
+.pied p{margin:0}
+.pied a{color:inherit}
+
+/* ============================================================
+   ÉCRANS PEU HAUTS
+   Les clamp() ci-dessus absorbent la variation courante. En
+   dessous de 840 px de hauteur utile, ils atteignent leur borne
+   basse : on resserre alors ce qui peut l'être sans retirer
+   d'information, pour que le parcours reste visible en entier.
+   ============================================================ */
+@media (max-height: 840px){
+  .accroche{font-size:var(--t-sm); max-width:none}
+  .carte-message textarea{min-height:clamp(4rem, 11vh, 6rem)}
+  .apercu > p{font-size:var(--t-xs); max-width:none}
+  .confiance{font-size:var(--t-xs)}
+  .recu-corps{min-height:clamp(3rem, 9vh, 5rem)}
+}
+@media (max-height: 800px){
+  .simulation{font-size:var(--t-xs); padding:var(--e1) var(--e4)}
+  .accroche{font-size:var(--t-xs)}
+  .carte-message textarea{min-height:4rem; font-size:1.05rem}
+  .champ > label, .legende{margin-bottom:var(--e1)}
+  .signature{padding:var(--e2) var(--e4)}
+  .pied{font-size:.7rem}
+  /* La colonne aperçu devient la plus haute des deux sur écran bas :
+     c'est elle qui fixe alors la hauteur de la page. */
+  .recu-tete{padding:var(--e2) var(--e4)}
+  .recu-pied{padding:var(--e2) var(--e4)}
+  .recu-tete .de{width:1.9rem; height:1.9rem}
+  .confiance{margin-top:var(--v2); line-height:1.35}
+}
+
+/* Écran étroit : le formulaire, jusqu'au bouton d'envoi, doit tenir
+   dans la hauteur. L'aperçu vient ensuite — on ne peut pas afficher
+   six champs et une prévisualisation dans 650 px utiles sans rendre
+   le texte illisible, et c'est le formulaire qui prime. */
+@media (max-width: 62rem){
+  .simulation{font-size:var(--t-xs); padding:var(--e2) var(--e3); line-height:1.35}
+  .accroche{font-size:var(--t-sm); max-width:none}
+  .tete{gap:var(--e2); padding-block:0 var(--v3)}
+  .etat{font-size:var(--t-xs)}
+  .apercu h2{font-size:var(--t-md)}
+  .carte-message{padding:var(--v3) var(--e4)}
+  .carte-message textarea{min-height:clamp(4rem, 12vh, 6rem)}
+  .controle{padding:var(--e2) var(--e3); gap:var(--e2)}
+  .controle p{font-size:var(--t-xs)}
+  .controle .aide{margin-top:0}
+  .pied{font-size:.7rem; padding:var(--e2) var(--e4)}
+}
+
+/* Écrans très bas (petits mobiles, fenêtre réduite). L'accroche et
+   l'indicateur d'état sont retirés de l'affichage mais restent lus par
+   les lecteurs d'écran : on libère de la hauteur sans perdre le sens. */
+@media (max-height: 700px){
+  .accroche, .etat{
+    position:absolute; width:1px; height:1px;
+    padding:0; margin:-1px; overflow:hidden;
+    clip-path:inset(50%); white-space:nowrap;
+  }
+  .carte-message textarea{min-height:3.2rem}
+  .champ{margin-bottom:var(--v3)}
+  .enveloppe{padding-top:var(--v3)}
+}
+
+/* Mobile peu haut : même traitement, borné à l'écran étroit pour ne pas
+   dégrader un desktop de faible hauteur, qui a la place en largeur. */
+@media (max-width: 62rem) and (max-height: 800px){
+  .accroche, .etat{
+    position:absolute; width:1px; height:1px;
+    padding:0; margin:-1px; overflow:hidden;
+    clip-path:inset(50%); white-space:nowrap;
+  }
+}

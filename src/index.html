@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobitag — envoyer un message</title>
+<meta name="description" content="Envoyez gratuitement un message vers un mobile de Nouvelle-Calédonie, depuis n'importe quel navigateur.">
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+
+<p class="simulation" role="status">
+  <b>Mode simulation.</b> Aucun message n'est transmis au réseau. Numéros fictifs ;
+  un numéro en <b>99</b> simule un échec de remise.
+</p>
+
+<div class="enveloppe">
+
+  <header class="tete">
+    <div>
+      <h1 class="marque">Mobi<span>tag</span></h1>
+      <p class="accroche">Envoyez un message vers un mobile calédonien, gratuitement, depuis n'importe quel navigateur.</p>
+    </div>
+    <p class="etat"><span class="pastille" aria-hidden="true"></span> Service disponible</p>
+  </header>
+
+  <div class="grille">
+
+    <!-- ======================= RÉDACTION ======================= -->
+    <section id="redaction" aria-labelledby="titre-redaction">
+      <h2 id="titre-redaction" class="legende" style="font-size:var(--t-lg);margin-bottom:var(--e4)">Votre message</h2>
+
+      <form method="post" action="/envoyer" id="formulaire">
+
+        <div class="champ">
+          <label for="destinataire">Numéro du destinataire</label>
+          <div class="numero" id="bloc-numero">
+            <span class="indicatif" aria-hidden="true">+687</span>
+            <!-- Le pattern impose un préfixe mobile calédonien (7, 8 ou 9).
+                 Les fixes (2x à 4x) sont rejetés par le navigateur lui-même,
+                 sans attendre le JavaScript. -->
+            <input id="destinataire" name="destinataire" type="tel"
+                   inputmode="numeric" autocomplete="tel-national"
+                   placeholder="75 12 34" maxlength="8"
+                   pattern="[789][0-9]\s?[0-9]{2}\s?[0-9]{2}" required
+                   aria-describedby="aide-destinataire erreur-destinataire">
+          </div>
+          <p class="aide" id="aide-destinataire">Six chiffres, commençant par 7, 8 ou 9.</p>
+          <p class="erreur-champ" id="erreur-destinataire" role="alert" hidden></p>
+        </div>
+
+        <div class="champ">
+          <label for="message">Texte</label>
+          <div class="carte-message">
+            <textarea id="message" name="message" maxlength="150" required
+                      placeholder="Écrivez ici…" aria-describedby="compteur"></textarea>
+            <div class="budget">
+              <div class="jauge" id="jauge" aria-hidden="true"><i></i></div>
+              <!-- aria-live sur le compteur, pas sur l'aperçu : on annonce
+                   l'information utile (le budget restant) et non la relecture
+                   du message entier à chaque frappe. -->
+              <p id="compteur" aria-live="polite" aria-atomic="true">150 caractères disponibles</p>
+            </div>
+          </div>
+
+          <div class="signature">
+            <label for="signature">Signer</label>
+            <input id="signature" name="signature" type="text" maxlength="20"
+                   placeholder="Votre prénom (facultatif)" autocomplete="given-name">
+          </div>
+          <!-- L'aide « sans signature, seul le code apparaît » a été retirée :
+               l'aperçu de droite montre le résultat en direct, ce qui est plus
+               clair qu'une phrase et libère de la hauteur. -->
+        </div>
+
+        <div class="controle">
+          <input id="humain" name="humain" type="checkbox" required>
+          <div>
+            <p><label for="humain">Je confirme envoyer ce message à une personne que je connais.</label></p>
+            <p class="aide">Une vérification automatique s'ajoute si plusieurs envois se suivent.</p>
+          </div>
+        </div>
+
+        <button class="envoyer" type="submit">Envoyer le message</button>
+
+        <!-- ============ F10 : orientation vers Helia PRO ============
+             Apparaît uniquement quand un faisceau d'indices signale un usage
+             professionnel. L'utilisateur n'est jamais bloqué : son message part
+             normalement. On lui propose l'offre au moment où il se heurte à la
+             limite du service grand public. -->
+        <section class="pro" id="orientation-pro" hidden aria-labelledby="titre-pro">
+          <h3 id="titre-pro">Votre besoin ressemble à un usage professionnel</h3>
+          <p id="motif-pro"></p>
+          <p>Mobitag est un service pour les particuliers : un destinataire à la fois,
+             sans liste ni automatisation. Pour prévenir vos clients ou vos adhérents,
+             l'OPT-NC propose <b>Helia PRO</b>, qui gère les envois en volume, les accusés
+             de réception et les réponses.</p>
+          <a href="#helia-pro">Découvrir Helia PRO</a>
+          <button type="button" class="refuser" id="refuser-pro">Ce n'est pas mon cas</button>
+        </section>
+
+        <!-- Repliable : l'information reste accessible et présente dans le
+             document (F04), sans consommer la hauteur de la première vue. -->
+        <details class="conditions">
+          <summary>Ce que ce service conserve</summary>
+          <ul>
+            <li>Le numéro du destinataire, sous forme chiffrée, pendant 24 heures, pour éviter les envois répétés.</li>
+            <li>La date, l'heure et le statut de remise, pendant 30 jours.</li>
+            <li>Le texte de votre message n'est jamais journalisé, et il est effacé dès la remise.</li>
+          </ul>
+        </details>
+      </form>
+    </section>
+
+    <!-- ======================= APERÇU ======================= -->
+    <aside class="apercu" aria-labelledby="titre-apercu">
+      <h2 id="titre-apercu">Ce que votre destinataire recevra</h2>
+      <p>Le message arrive depuis le 1000, le numéro de service de l'OPT-NC.</p>
+
+      <div class="recu">
+        <div class="recu-tete">
+          <span class="de" aria-hidden="true">1000</span>
+          <div>
+            <b>Message Mobitag</b>
+            <span>Reçu à l'instant</span>
+          </div>
+        </div>
+        <div class="recu-corps" id="apercu-corps"><span class="recu-vide" id="apercu-vide">Votre message apparaîtra ici, tel que votre destinataire le lira.</span></div>
+        <div class="recu-pied">
+          <span>Origine vérifiable</span>
+          <span>mobitag.nc/v/<code id="code-origine">4K7P2</code></span>
+        </div>
+      </div>
+
+      <p class="confiance">
+        <strong>Pourquoi ce code.</strong> Votre destinataire peut le saisir sur mobitag.nc pour confirmer que le message vient bien de ce service, et signaler un abus en un clic. Aucun message légitime n'arrive sans code.
+      </p>
+    </aside>
+
+    <!-- ======================= CONFIRMATION ======================= -->
+    <section class="confirmation" id="confirmation" hidden aria-labelledby="titre-confirmation">
+      <!-- tabindex="-1" : le focus y est porté après l'envoi, sinon l'utilisateur
+           au clavier ou au lecteur d'écran reste sur un formulaire qui a disparu. -->
+      <h2 id="titre-confirmation" tabindex="-1">Envoi en cours</h2>
+      <p id="recap-phrase">Message transmis au <strong id="recap-numero">+687 75 12 34</strong>. Suivi de la remise, en direct.</p>
+      <ol class="etapes" id="etapes"></ol>
+
+      <p class="brouillon" id="recap-code" hidden>
+        Code d'origine de ce message : <b id="code-remis">—</b>.
+        Votre destinataire peut le vérifier sur mobitag.nc et signaler un abus.
+      </p>
+
+      <!-- F09 : en cas d'échec, le message n'est pas perdu -->
+      <p class="brouillon" id="bloc-brouillon" hidden>
+        <b>Votre message a été conservé.</b> Il est encore dans le formulaire :
+        vous pouvez réessayer sans le ressaisir.
+      </p>
+
+      <div class="rejeu">
+        <button class="envoyer" type="button" id="reessayer" hidden>Réessayer l'envoi</button>
+        <button class="lien-retour" type="button" id="retour">Écrire un autre message</button>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<footer class="pied">
+  <p>Un service de l'OPT-NC. Gratuit, sans compte, sans publicité.</p>
+  <p><a href="#conditions">Conditions et limites</a> · <a href="#donnees">Vos données</a> · <a href="#pro">Vous êtes une entreprise ?</a></p>
+</footer>
+
+</body>
+</html>

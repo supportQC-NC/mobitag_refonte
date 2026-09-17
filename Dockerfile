@@ -1,11 +1,10 @@
 FROM caddy:2-alpine
 
-# Page statique, aucune dépendance de build.
-COPY mobitag-envoi.html /srv/index.html
+# Ressources statiques : aucune étape de build, aucune dépendance à installer.
+# Le HTML, le CSS et le JS sont des fichiers distincts, servis tels quels.
+COPY src/ /srv/
 COPY Caddyfile /etc/caddy/Caddyfile
 
-# Caddy tourne déjà sans privilèges dans cette image, mais on l'explicite :
-# le conteneur n'a besoin d'écrire nulle part.
 EXPOSE 8080
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \

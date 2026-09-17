@@ -1,0 +1,6 @@
+# Le contexte de build ne doit contenir que la page et sa configuration.
+# Sans ce fichier, le PDF du dossier (800 Ko) et tout le dossier candidature
+# partent au démon Docker à chaque build.
+*
+!mobitag-envoi.html
+!Caddyfile

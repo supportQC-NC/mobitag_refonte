@@ -79,6 +79,11 @@ body{
   display:grid;
   grid-template-rows:auto 1fr auto;
 }
+/* Un enfant de grille a min-width:auto par défaut : il refuse de
+   rétrécir sous la largeur minimale de son contenu. Un tableau un peu
+   large suffit alors à élargir toute la page et à créer un défilement
+   horizontal. On l'autorise explicitement à se contracter. */
+body > *{min-width:0}
 :where(a){color:var(--lagon-fonce)}
 :where(:focus-visible){
   outline:3px solid var(--soleil);
@@ -143,7 +148,9 @@ body{
 .grille{
   display:grid;
   gap:var(--v6);
-  grid-template-columns:1fr;
+  /* minmax(0,1fr) et non 1fr : sinon la colonne refuse de passer sous la
+     largeur minimale de son contenu et déborde sur les écrans étroits. */
+  grid-template-columns:minmax(0,1fr);
   align-items:start;
 }
 @media (min-width:62rem){
@@ -478,6 +485,136 @@ body{
 }
 .pied p{margin:0}
 .pied a{color:inherit}
+
+/* ============================================================
+   PAGES DE CONTENU  (conditions, données)
+   Même socle de tokens que le parcours d'envoi : une seule
+   feuille de style pour tout le service.
+   ============================================================ */
+.doc{
+  max-width:56rem;
+  margin-inline:auto;
+  padding-block:var(--v5) var(--v6);
+}
+.fil{
+  font-size:var(--t-sm);
+  margin:0 0 var(--v4);
+}
+.fil a{text-decoration:none}
+.fil a:hover{text-decoration:underline}
+
+.doc h1{
+  font-size:clamp(1.5rem, 4vh, 2rem);
+  line-height:1.15;
+  margin:0 0 var(--e2);
+  letter-spacing:-.02em;
+}
+.doc .chapo{
+  font-size:var(--t-lg);
+  color:var(--encre-doux);
+  margin:0 0 var(--v5);
+  max-width:60ch;
+}
+.doc section{
+  margin-bottom:var(--v6);
+  scroll-margin-top:var(--e4);
+}
+.doc h2{
+  font-size:var(--t-xl);
+  margin:0 0 var(--e3);
+  padding-bottom:var(--e2);
+  border-bottom:1px solid var(--trait);
+}
+.doc h3{
+  font-size:var(--t-md);
+  margin:var(--e4) 0 var(--e2);
+}
+.doc p{margin:0 0 var(--e3); max-width:72ch}
+.doc ul{margin:0 0 var(--e3); padding-left:1.2rem; max-width:72ch}
+.doc li{margin-bottom:var(--e2)}
+.doc a{color:var(--lagon-fonce)}
+
+/* Sommaire */
+.sommaire{
+  background:var(--surface);
+  border:1px solid var(--trait);
+  border-radius:var(--r-m);
+  padding:var(--e4);
+  margin-bottom:var(--v6);
+}
+.sommaire h2{
+  font-size:var(--t-sm); text-transform:uppercase;
+  letter-spacing:.08em; color:var(--encre-doux);
+  border:0; padding:0; margin:0 0 var(--e2);
+}
+.sommaire ol{
+  margin:0; padding-left:1.2rem;
+  columns:2; column-gap:var(--e6);
+  font-size:var(--t-sm);
+}
+@media (max-width:40rem){ .sommaire ol{columns:1} }
+.sommaire li{margin-bottom:var(--e1)}
+
+/* Tableau de limites chiffrées */
+.limites{
+  width:100%;
+  border-collapse:collapse;
+  margin:0 0 var(--e3);
+  font-size:var(--t-sm);
+}
+.limites caption{
+  text-align:left;
+  color:var(--encre-doux);
+  font-size:var(--t-sm);
+  padding-bottom:var(--e2);
+}
+.limites th, .limites td{
+  text-align:left;
+  padding:var(--e2) var(--e3);
+  border-bottom:1px solid var(--trait);
+  vertical-align:top;
+}
+.limites thead th{
+  background:var(--surface);
+  font-size:var(--t-xs);
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--encre-doux);
+}
+.limites td:last-child{
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+  font-weight:600;
+}
+@media (max-width:40rem){
+  /* Mieux vaut une valeur sur deux lignes qu'un tableau qui déborde. */
+  .limites td:last-child{white-space:normal}
+  .limites th, .limites td{padding:var(--e2)}
+  .limites{font-size:var(--t-xs)}
+}
+
+/* Encadré d'insistance */
+.note{
+  border-left:3px solid var(--lagon);
+  background:var(--surface);
+  border-radius:0 var(--r-m) var(--r-m) 0;
+  padding:var(--e3) var(--e4);
+  margin:0 0 var(--e3);
+}
+.note.attention{border-left-color:var(--soleil)}
+.note.interdit{border-left-color:var(--alerte)}
+.note p:last-child{margin-bottom:0}
+
+/* Liste des interdits */
+.interdits li::marker{color:var(--alerte)}
+
+.maj{
+  margin-top:var(--v6);
+  padding-top:var(--e3);
+  border-top:1px solid var(--trait);
+  font-size:var(--t-sm);
+  color:var(--encre-doux);
+}
 
 /* ============================================================
    ÉCRANS PEU HAUTS

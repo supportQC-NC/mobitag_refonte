@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conditions et limites — Mobitag</title>
+<meta name="description" content="Ce que Mobitag permet, ce qu'il limite et pourquoi : conditions d'utilisation du service d'envoi de message vers un mobile calédonien.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<p class="simulation" role="status">
+  <b>Mode simulation.</b> Aucun message n'est transmis au réseau. Numéros fictifs ;
+  un numéro en <b>99</b> simule un échec de remise.
+</p>
+
+<div class="enveloppe doc">
+
+  <p class="fil"><a href="./">&larr; Retour à l'envoi</a></p>
+
+  <h1>Conditions et limites</h1>
+  <p class="chapo">
+    Mobitag est un service gratuit de l'OPT-NC qui permet d'envoyer un message
+    vers un mobile calédonien depuis un navigateur, sans compte et sans ligne mobile.
+    Cette page dit ce qu'il permet, ce qu'il limite, et pourquoi.
+  </p>
+
+  <nav class="sommaire" aria-labelledby="titre-sommaire">
+    <h2 id="titre-sommaire">Sur cette page</h2>
+    <ol>
+      <li><a href="#service">Le service en bref</a></li>
+      <li><a href="#limites">Les limites d'envoi</a></li>
+      <li><a href="#pourquoi">Pourquoi ces limites</a></li>
+      <li><a href="#interdits">Ce qui n'est pas permis</a></li>
+      <li><a href="#origine">Le code d'origine</a></li>
+      <li><a href="#signaler">Signaler un abus</a></li>
+      <li><a href="#donnees">Vos données, en résumé</a></li>
+      <li><a href="#pro">Usage professionnel</a></li>
+      <li><a href="#dispo">Disponibilité du service</a></li>
+    </ol>
+  </nav>
+
+  <!-- ==================================================== -->
+  <section id="service">
+    <h2>1. Le service en bref</h2>
+    <ul>
+      <li><strong>Gratuit, sans condition.</strong> L'envoi d'un message ne vous est jamais facturé.
+          Il n'existe aucune option payante permettant d'en envoyer davantage, ni aucun palier à acheter.</li>
+      <li><strong>Sans compte.</strong> Aucune inscription, aucun mot de passe, aucune adresse
+          électronique n'est demandée.</li>
+      <li><strong>Sans ligne mobile.</strong> C'est la raison d'être du service : il fonctionne
+          depuis n'importe quel navigateur, y compris quand votre téléphone est perdu, cassé,
+          déchargé ou hors forfait, ou depuis un poste partagé.</li>
+      <li><strong>Un destinataire à la fois.</strong> Mobitag est un service entre personnes.
+          Il n'accepte ni liste de destinataires, ni import de contacts, ni envoi automatisé.</li>
+      <li><strong>Vers les mobiles de Nouvelle-Calédonie.</strong> Numéros Mobilis et Liberté,
+          commençant par 7, 8 ou 9. Les numéros fixes et étrangers ne sont pas desservis.</li>
+    </ul>
+  </section>
+
+  <!-- ==================================================== -->
+  <section id="limites">
+    <h2>2. Les limites d'envoi</h2>
+    <p>Ces limites s'appliquent à tout le monde, de la même manière. Elles ne sont pas
+       contournables et ne peuvent pas être levées contre paiement.</p>
+
+    <table class="limites">
+      <caption>Limites appliquées à un message et à son expéditeur</caption>
+      <thead>
+        <tr><th scope="col">Ce qui est limité</th><th scope="col">Pourquoi</th><th scope="col">Limite</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Longueur du message</td>
+          <td>Tenir dans un SMS et rester lisible sur tout mobile</td>
+          <td>150 caractères</td>
+        </tr>
+        <tr>
+          <td>Destinataires par envoi</td>
+          <td>Garder un service entre personnes, jamais un outil de diffusion</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Messages par heure, depuis un même appareil</td>
+          <td>Empêcher les envois en rafale</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Messages par jour, depuis un même appareil</td>
+          <td>Empêcher l'usage massif</td>
+          <td>20</td>
+        </tr>
+        <tr>
+          <td>Messages par heure vers un même numéro</td>
+          <td>Protéger le destinataire du harcèlement</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Messages par jour vers un même numéro</td>
+          <td>Protéger le destinataire du harcèlement</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Signature</td>
+          <td>Identifier l'expéditeur sans permettre l'usurpation</td>
+          <td>20 caractères</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note attention">
+      <p><strong>Une vérification peut s'ajouter.</strong> Lorsque plusieurs envois se suivent
+      rapidement, ou lorsque le contenu présente les signes d'un envoi automatisé, le service
+      peut demander une confirmation supplémentaire avant de transmettre le message. Cette
+      vérification n'est pas systématique : elle se déclenche sur signal, pour ne pas gêner
+      l'usage normal — en particulier celui d'une personne déjà en difficulté.</p>
+    </div>
+
+    <p>Un dépassement ne bloque pas définitivement : le compteur se remet à zéro à l'échéance
+       indiquée. En cas de blocage prolongé qui vous paraît injustifié, la démarche est
+       décrite au point 6.</p>
+  </section>
+
+  <!-- ==================================================== -->
+  <section id="pourquoi">
+    <h2>3. Pourquoi ces limites</h2>
+    <p>Un service gratuit et ouvert sans compte est, par nature, une cible pour les envois
+       automatisés et les messages frauduleux. Les limites ci-dessus ont trois objets, dans
+       cet ordre :</p>
+    <ul>
+      <li><strong>Protéger les destinataires.</strong> Un message reçu depuis le 1000 doit
+          rester quelque chose qu'on lit sans méfiance.</li>
+      <li><strong>Garder le service gratuit.</strong> Chaque message a un coût d'acheminement.
+          Contenir les abus, c'est ce qui permet de ne jamais facturer l'usage normal.</li>
+      <li><strong>Rester à sa place.</strong> Mobitag s'adresse aux particuliers. Les besoins
+          professionnels relèvent d'autres offres de l'OPT-NC, décrites au point 8.</li>
+    </ul>
+    <div class="note">
+      <p>Ces limites sont publiques et chiffrées volontairement. Un service qui bride sans le
+      dire laisse l'utilisateur deviner ; nous préférons qu'il sache à quoi s'attendre avant
+      d'écrire.</p>
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <section id="interdits">
+    <h2>4. Ce qui n'est pas permis</h2>
+    <p>L'usage de Mobitag engage la personne qui envoie le message. Sont notamment exclus :</p>
+    <ul class="interdits">
+      <li><strong>Le harcèlement, les menaces et les injures</strong>, ainsi que tout message
+          adressé à une personne qui a demandé à ne plus en recevoir.</li>
+      <li><strong>L'usurpation d'identité</strong> : se faire passer pour une autre personne,
+          une entreprise, une administration ou l'OPT-NC lui-même.</li>
+      <li><strong>Les messages frauduleux</strong> : demande d'argent, de code de confirmation,
+          de coordonnées bancaires, lien vers un site trompeur.</li>
+      <li><strong>La prospection commerciale</strong>, les offres, les promotions et les
+          relances clients — quel qu'en soit le volume.</li>
+      <li><strong>L'envoi automatisé</strong> : script, robot, extension, ou tout moyen de
+          contourner les limites ou la vérification.</li>
+      <li><strong>Les contenus illicites</strong> au regard du droit applicable en
+          Nouvelle-Calédonie.</li>
+    </ul>
+    <div class="note interdit">
+      <p><strong>Conséquences.</strong> Un usage contraire à ces règles peut entraîner le refus
+      de l'envoi, la suspension temporaire de l'accès depuis l'appareil concerné et, en cas de
+      fait susceptible de constituer une infraction, un signalement aux autorités compétentes.</p>
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <section id="origine">
+    <h2>5. Le code d'origine</h2>
+    <p>Chaque message envoyé porte un code court, unique, affiché avant l'envoi et rappelé
+       après la remise — par exemple <b>7JK7Y</b>. Ce code est communiqué au destinataire
+       avec le message.</p>
+    <p>Il lui permet de vérifier, sur ce site, que le message provient bien de Mobitag : qui
+       l'a émis s'il l'a déclaré, quand, et par quel service. <strong>Aucun message légitime
+       n'arrive sans code.</strong> Un message se réclamant du 1000 mais dépourvu de code
+       vérifiable doit être considéré comme suspect.</p>
+    <p>Le code ne révèle jamais votre numéro de téléphone ni votre identité : il atteste
+       l'origine du message, pas celle de la personne.</p>
+  </section>
+
+  <!-- ==================================================== -->
+  <section id="signaler">
+    <h2>6. Signaler un abus</h2>
+    <p>Toute personne recevant un message Mobitag peut, sans compte et en un geste :</p>
+    <ul>
+      <li><strong>Signaler un abus</strong> depuis la page de vérification du code d'origine.</li>
+      <li><strong>Demander à ne plus recevoir de Mobitag</strong>, immédiatement et sans
+          justification à fournir. Ce refus est définitif tant qu'elle ne revient pas dessus.</li>
+    </ul>
+    <p>Un signalement alimente directement les dispositifs de prévention des abus. Il est
+       traité sans que le contenu du message ait à être conservé au-delà des durées indiquées
+       au point 7.</p>
+    <p>Si vous estimez qu'un blocage vous concernant est injustifié, ou pour toute question sur
+       ces conditions, écrivez à <a href="mailto:mobitag@opt.nc">mobitag@opt.nc</a>.</p>
+  </section>
+
+  <!-- ==================================================== -->
+  <section id="donnees">
+    <h2>7. Vos données, en résumé</h2>
+    <p>Le principe est la minimisation : le service ne collecte que ce dont il a besoin pour
+       remettre le message et prévenir les abus.</p>
+    <table class="limites">
+      <caption>Ce qui est conservé, et combien de temps</caption>
+      <thead>
+        <tr><th scope="col">Donnée</th><th scope="col">Raison</th><th scope="col">Durée</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Numéro du destinataire, sous forme chiffrée</td>
+          <td>Appliquer les limites par destinataire</td>
+          <td>24 heures</td>
+        </tr>
+        <tr>
+          <td>Date, heure et statut de remise</td>
+          <td>Suivi technique et traitement des incidents</td>
+          <td>30 jours</td>
+        </tr>
+        <tr>
+          <td>Code d'origine du message</td>
+          <td>Permettre la vérification par le destinataire</td>
+          <td>30 jours</td>
+        </tr>
+        <tr>
+          <td>Texte du message</td>
+          <td>—</td>
+          <td>Non conservé</td>
+        </tr>
+        <tr>
+          <td>Votre numéro, si vous le renseignez</td>
+          <td>Permettre au destinataire de vous répondre</td>
+          <td>Le temps de la remise</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <p><strong>Ce que le service ne fait pas :</strong> le contenu des messages n'est jamais
+      journalisé ni analysé à des fins commerciales, aucune donnée n'est revendue, aucun profil
+      d'utilisateur ou de correspondant n'est constitué, et aucune publicité n'est insérée dans
+      un message personnel.</p>
+    </div>
+    <p>Le détail des traitements, la base légale et vos droits d'accès, de rectification et
+       d'opposition figurent sur la page <a href="#donnees">Vos données</a> ci-dessus.</p>
+  </section>
+
+  <!-- ==================================================== -->
+  <section id="pro">
+    <h2>8. Usage professionnel</h2>
+    <p>Mobitag ne couvre pas les besoins professionnels : prévenir des clients, confirmer des
+       rendez-vous, envoyer des alertes ou des campagnes. Ces usages supposent des envois en
+       volume, des accusés de réception et la gestion des réponses — ce que ce service ne fait
+       pas, délibérément.</p>
+    <p>L'OPT-NC propose pour cela <strong>Helia PRO</strong> et sa plateforme de services à
+       valeur ajoutée : envoi de SMS en volume, alertes et notifications, campagnes,
+       SMS entrants et sortants, numéros courts.</p>
+    <p>Si le service détecte des signes d'usage professionnel, il vous l'indique et vous
+       oriente vers ces offres. Il ne bloque pas votre message pour autant.</p>
+  </section>
+
+  <!-- ==================================================== -->
+  <section id="dispo">
+    <h2>9. Disponibilité du service</h2>
+    <p>Mobitag est fourni gratuitement, en l'état, sans garantie de remise ni de délai. La
+       remise d'un message dépend du réseau mobile et de l'état de la ligne du destinataire :
+       un mobile éteint, hors zone ou suspendu peut ne jamais recevoir le message.</p>
+    <p>Lorsqu'un envoi échoue, le service vous l'indique et conserve votre texte dans le
+       formulaire afin que vous puissiez réessayer sans le ressaisir.</p>
+    <p>Le service peut être interrompu pour maintenance, ou restreint temporairement en cas
+       d'incident de sécurité ou d'abus massif. Ces conditions peuvent évoluer ; la date de
+       dernière mise à jour figure ci-dessous.</p>
+  </section>
+
+  <p class="maj">
+    Conditions applicables au service Mobitag de l'OPT-NC.
+    <strong>Version de démonstration</strong> — document établi dans le cadre du Challenge
+    Mobitag 2026 et sans valeur contractuelle.
+    Dernière mise à jour : <time datetime="2026-09-17">17 septembre 2026</time>.
+  </p>
+
+</div>
+
+<footer class="pied">
+  <p>Un service de l'OPT-NC. Gratuit, sans compte, sans publicité.</p>
+  <p><a href="./">Envoyer un message</a> · <a href="#donnees">Vos données</a> · <a href="#pro">Vous êtes une entreprise ?</a></p>
+</footer>
+
+</body>
+</html>
